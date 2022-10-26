@@ -5,6 +5,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>common</module>
+        <module>model</module>
+        <module>service</module>
     </modules>
     <dependencies>
         <dependency>
