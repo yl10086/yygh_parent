@@ -17,9 +17,15 @@
     </modules>
 
     <dependencies>
+        <!-- 不同模块下的关联方式 -->
         <dependency>
             <groupId>com.atguigu</groupId>
             <artifactId>model</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>service_util</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <!--web-->
