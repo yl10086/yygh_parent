@@ -1,5 +1,6 @@
 package com.atguigu.yygh.hosp.controller;
 
+import com.atguigu.yygh.common.exception.YyghException;
 import com.atguigu.yygh.common.result.Result;
 import com.atguigu.yygh.common.util.MD5;
 import com.atguigu.yygh.hosp.service.impl.HospitalSetServiceImpl;
@@ -106,6 +107,12 @@ public class HospitalController {
     @ApiOperation(value = "查询表中一个医院信息")
     @GetMapping("getHospitalSet/{id}")
     public Result getHospitalSet(@PathVariable Long id){
+        try {
+            //模拟异常
+            int i = 1/0;
+        } catch (Exception e) {
+            throw new YyghException(e.getMessage(),201);
+        }
         HospitalSet byId = hospitalSetService.getById(id);
         return Result.ok(byId);
     }
@@ -125,6 +132,30 @@ public class HospitalController {
     @DeleteMapping("batchDeleteHospitalSet")
     public Result batchDeleteHospitalSet(@RequestBody List<Long> idList){
         hospitalSetService.removeByIds(idList);
+        return Result.ok();
+    }
+
+    @ApiOperation(value = "设置医院的状态：锁定和解锁")
+    @PutMapping("lockHospitalSet/{id}/{status}")
+    public Result lockHospitalSet(@PathVariable Long id,
+                                  @PathVariable Integer status){
+        //先通过数据库查询是否有这个id
+        HospitalSet id1 = hospitalSetService.getById(id);
+        //设置status
+        id1.setStatus(status);
+        //调用更新方法修改状态
+        hospitalSetService.updateById(id1);
+        return Result.ok();
+    }
+
+    @ApiOperation(value = "发送签名和密钥")
+    @PostMapping("sendKey/{id}")
+    public Result sendKey(@PathVariable Long id){
+        //先通过数据库查询是否有这个id
+        HospitalSet id1 = hospitalSetService.getById(id);
+        String signKey = id1.getSignKey();
+        String hoscode = id1.getHoscode();
+        //TODO 发送短信
         return Result.ok();
     }
 
