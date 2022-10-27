@@ -1,0 +1,42 @@
+2022-10-27 21:11:10.337 [restartedMain] INFO  com.atguigu.yygh.hosp.ServiceHospApplication - Starting ServiceHospApplication on LAPTOP-KQPHICHV with PID 5656 (D:\SSM\1026\yygh_parent\service\service_hosp\target\classes started by YeLei in D:\SSM\1026\yygh_parent)
+2022-10-27 21:11:10.344 [restartedMain] INFO  com.atguigu.yygh.hosp.ServiceHospApplication - The following profiles are active: dev
+2022-10-27 21:11:10.489 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-10-27 21:11:10.489 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-10-27 21:11:12.323 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-27 21:11:12.747 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8201 (http)
+2022-10-27 21:11:12.758 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8201"]
+2022-10-27 21:11:12.760 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-10-27 21:11:12.761 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
+2022-10-27 21:11:12.886 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-10-27 21:11:12.887 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2397 ms
+2022-10-27 21:11:15.437 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-10-27 21:11:15.608 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-10-27 21:11:15.670 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2022-10-27 21:11:15.882 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2022-10-27 21:11:15.902 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 2 custom documentation plugin(s)
+2022-10-27 21:11:15.950 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2022-10-27 21:11:16.218 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2022-10-27 21:11:16.230 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8201"]
+2022-10-27 21:11:16.260 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8201 (http) with context path ''
+2022-10-27 21:11:16.264 [restartedMain] INFO  com.atguigu.yygh.hosp.ServiceHospApplication - Started ServiceHospApplication in 6.924 seconds (JVM running for 8.614)
+2022-10-27 21:13:43.963 [restartedMain] INFO  com.atguigu.yygh.hosp.ServiceHospApplication - Starting ServiceHospApplication on LAPTOP-KQPHICHV with PID 1848 (D:\SSM\1026\yygh_parent\service\service_hosp\target\classes started by YeLei in D:\SSM\1026\yygh_parent)
+2022-10-27 21:13:43.969 [restartedMain] INFO  com.atguigu.yygh.hosp.ServiceHospApplication - The following profiles are active: dev
+2022-10-27 21:13:44.140 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-10-27 21:13:44.141 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-10-27 21:13:46.155 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-10-27 21:13:46.558 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8201 (http)
+2022-10-27 21:13:46.568 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8201"]
+2022-10-27 21:13:46.569 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-10-27 21:13:46.570 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
+2022-10-27 21:13:46.664 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-10-27 21:13:46.664 [restartedMain] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2523 ms
+2022-10-27 21:13:48.797 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-10-27 21:13:48.923 [restartedMain] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-10-27 21:13:48.982 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2022-10-27 21:13:49.195 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2022-10-27 21:13:49.209 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 2 custom documentation plugin(s)
+2022-10-27 21:13:49.241 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2022-10-27 21:13:49.480 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2022-10-27 21:13:49.491 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8201"]
+2022-10-27 21:13:49.518 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8201 (http) with context path ''
+2022-10-27 21:13:49.526 [restartedMain] INFO  com.atguigu.yygh.hosp.ServiceHospApplication - Started ServiceHospApplication in 6.512 seconds (JVM running for 8.661)
