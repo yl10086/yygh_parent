@@ -5,10 +5,11 @@ import com.atguigu.yygh.cmn.service.DictService;
 import com.atguigu.yygh.model.cmn.Dict;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.ibatis.logging.stdout.StdOutImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -31,5 +32,18 @@ public class DictController {
     public Result findChildData(@PathVariable Long id){
         List<Dict> list = dictService.findChildData(id);
         return Result.ok(list);
+    }
+
+    @ApiOperation(value = "EasyExcel导出字典数据")
+    @GetMapping("exportData")
+    public void exportDict(HttpServletResponse response){
+        dictService.exportDictData(response);
+    }
+
+    @ApiOperation(value = "EasyExcel导入字典数据")
+    @PostMapping("importData")
+    public Result importDict(MultipartFile file){
+        dictService.importDictData(file);
+        return Result.ok();
     }
 }
