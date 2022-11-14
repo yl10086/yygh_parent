@@ -7,6 +7,8 @@ import com.atguigu.yygh.common.result.ResultCodeEnum;
 import com.atguigu.yygh.common.util.MD5;
 import com.atguigu.yygh.hosp.service.HospitalService;
 import com.atguigu.yygh.hosp.service.HospitalSetService;
+import com.atguigu.yygh.model.hosp.Hospital;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +34,30 @@ public class ApiController {
     @Autowired
     private HospitalSetService hospitalSetService;
 
-    //上传医院接口
+    @ApiOperation(value = "获取医院信息")
+    @PostMapping("hospital/show")
+    public Result hospital(HttpServletRequest request) {
+        //获取传递过来的医院信息
+        Map<String, String[]> requestMap = request.getParameterMap();
+        Map<String, Object> paramMap = HttpRequestHelper.switchMap(requestMap);
+        //获取医院编号
+        String hoscode = (String) paramMap.get("hoscode");
+        //1、获取医院系统传递过来的签名，进行MD5加密
+        String hospSign = (String) paramMap.get("sign");
+        //2、根据传递过来医院编号，查询数据库，查询签名
+        String signKey = hospitalSetService.getSignKey(hoscode);
+        //3、把数据库查询签名进行MD5加密
+        String signKeyMd5 = MD5.encrypt(signKey);
+        //4、判断签名是否一致
+        if (!hospSign.equals(signKeyMd5)){
+            throw new YyghException(ResultCodeEnum.SIGN_ERROR);
+        }
+        //调用service方法，实现根据医院编号查询
+        Hospital hospital = hospitalService.getByHoscode((String) paramMap.get("hoscode"));
+        return Result.ok(hospital);
+    }
+
+    @ApiOperation(value = "上传医院接口")
     @PostMapping("saveHospital")
     public Result saveHosp(HttpServletRequest request){
         //1、获取传递过来的医院信息
@@ -41,7 +66,7 @@ public class ApiController {
 
         //2、获取医院系统传递过来的签名，进行MD5加密
         String hospSign = (String) paramMap.get("sign");
-        //根据传递过来医院编码，查询数据库，查询签名
+        //根据传递过来医院编号，查询数据库，查询签名
         String hoscode = (String) paramMap.get("hoscode");
         String signKey = hospitalSetService.getSignKey(hoscode);
 

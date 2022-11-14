@@ -33,8 +33,8 @@ public class HospitalServiceImpl implements HospitalService {
         Hospital hospitalExist = hospitalRepository.getHospitalByHoscode(hoscode);
         //存在,进行修改操作
         if (hospitalExist != null){
+            hospital.setId(hospital.getId());
             hospital.setStatus(hospitalExist.getStatus());
-            hospital.setCreateTime(hospitalExist.getCreateTime());
             hospital.setUpdateTime(new Date());
             hospital.setIsDeleted(0);
             hospitalRepository.save(hospital);
@@ -45,5 +45,11 @@ public class HospitalServiceImpl implements HospitalService {
             hospital.setIsDeleted(0);
             hospitalRepository.save(hospital);
         }
+    }
+
+    @Override
+    public Hospital getByHoscode(String hoscode) {
+        Hospital hospital = hospitalRepository.getHospitalByHoscode(hoscode);
+        return hospital;
     }
 }
