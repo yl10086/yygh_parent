@@ -23,3 +23,6 @@ spring:
   data:
     mongodb:
       uri: mongodb://81.71.71.98:27017/yygh_hosp
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848

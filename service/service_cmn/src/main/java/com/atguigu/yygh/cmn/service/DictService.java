@@ -23,6 +23,9 @@ public interface DictService extends IService<Dict> {
     //EasyExcel导入字典数据
     void importDictData(MultipartFile file);
 
+    //根据dictcode和value条件查询||value条件查询
+    String getDictName(String dictCode, String value);
 
-
+    //根据dictCode获取下级节点
+    List<Dict> findByDictCode(String dictCode);
 }
