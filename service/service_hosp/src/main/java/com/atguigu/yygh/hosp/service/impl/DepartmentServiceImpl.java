@@ -5,13 +5,17 @@ import com.atguigu.yygh.hosp.repository.DepartmentRepository;
 import com.atguigu.yygh.hosp.service.DepartmentService;
 import com.atguigu.yygh.model.hosp.Department;
 import com.atguigu.yygh.vo.hosp.DepartmentQueryVo;
+import com.atguigu.yygh.vo.hosp.DepartmentVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @Author YeLei
@@ -75,5 +79,58 @@ public class DepartmentServiceImpl implements DepartmentService {
         if (department != null){
             departmentRepository.deleteById(department.getId());
         }
+    }
+
+    //根据医院编号，查询医院所有科室列表
+    @Override
+    public List<DepartmentVo> findDepartmentTree(String hoscode) {
+        //1、创建一个list集合，用于最终数据封装
+        List<DepartmentVo> result = new ArrayList<>();
+        //2、根据医院编号，查询医院所有科室信息
+        Department departmentQuery = new Department();
+        departmentQuery.setHoscode(hoscode);
+        Example<Department> example = Example.of(departmentQuery);
+        List<Department> departmentList = departmentRepository.findAll(example);
+        //3、根据大科室编号 bigcode 进行分组，获取每个大科室里面的下级子科室
+        Map<String, List<Department>> departmentMap = departmentList.stream()
+                .collect(Collectors.groupingBy(Department::getBigcode));
+        //遍历Map集合 departmentMap
+        for (Map.Entry<String,List<Department>> entry : departmentMap.entrySet()) {
+            //大科室编号
+            String bigcode = entry.getKey();
+            //大科室编号对应的全部数据
+            List<Department> departmentList1 = entry.getValue();
+
+            //封装大科室
+            DepartmentVo departmentVo = new DepartmentVo();
+            departmentVo.setDepcode(bigcode);
+            departmentVo.setDepname(departmentList1.get(0).getBigname());
+
+            //封装小科室
+            List<DepartmentVo> children = new ArrayList<>();
+            for (Department department : departmentList1){
+                DepartmentVo departmentVo1 = new DepartmentVo();
+                //将实体类Department中的数据进行转化到DepartmentVo类
+                departmentVo1.setDepcode(department.getDepcode());
+                departmentVo1.setDepname(department.getDepname());
+                //将转换后的数据封装到list集合中
+                children.add(departmentVo1);
+            }
+            //4、把小科室list集合放到大科室children里去
+            departmentVo.setChildren(children);
+            //5、将数据返回给最终封装的result中去
+            result.add(departmentVo);
+        }
+        return result;
+    }
+
+    //根据科室编号、医院编号，查询科室名称
+    @Override
+    public String getDepName(String hoscode, String depcode) {
+        Department department = departmentRepository.getDepartmentByHoscodeAndDepcode(hoscode, depcode);
+        if (department != null) {
+            return department.getDepname();
+        }
+        return null;
     }
 }

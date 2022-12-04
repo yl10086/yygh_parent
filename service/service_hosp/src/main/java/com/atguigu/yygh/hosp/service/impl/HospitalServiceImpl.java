@@ -12,6 +12,7 @@ import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -94,5 +95,41 @@ public class HospitalServiceImpl implements HospitalService {
         hospital.getParam().put("fullAddress",provinceString + cityString + districtString);
         hospital.getParam().put("hostypeString",hostypeString);
         return hospital;
+    }
+    //更新医院上线状态
+    @Override
+    public void updateStatus(String id, Integer status) {
+        //根据id查询医院信息
+        Hospital hospital = hospitalRepository.findById(id).get();
+        //修改状态值
+        hospital.setStatus(status);
+        hospital.setUpdateTime(new Date());
+        //保存修改数据
+        hospitalRepository.save(hospital);
+    }
+
+    //医院详情信息
+    @Override
+    public Map<String,Object> getHospById(String id) {
+        Map<String,Object> result = new HashMap<>();
+        //将医院信息再次进行封装
+        Hospital hospital = this.setHospitalHosType(hospitalRepository.findById(id).get());
+        result.put("hospital", hospital);
+        //单独处理更直观
+        result.put("bookingRule", hospital.getBookingRule());
+        //不需要重复返回
+        hospital.setBookingRule(null);
+        return result;
+
+    }
+
+    //获取医院名称
+    @Override
+    public String getHospName(String hoscode) {
+        Hospital hospitalByHoscode = hospitalRepository.getHospitalByHoscode(hoscode);
+        if (hospitalByHoscode != null){
+            return hospitalByHoscode.getHosname();
+        }
+        return null;
     }
 }

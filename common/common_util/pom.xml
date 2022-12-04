@@ -12,5 +12,12 @@
     <groupId>com.atguigu</groupId>
     <artifactId>common_util</artifactId>
 
-
+    <dependencies>
+        <!--日期时间工具-->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${jodatime.version}</version>
+        </dependency>
+    </dependencies>
 </project>
