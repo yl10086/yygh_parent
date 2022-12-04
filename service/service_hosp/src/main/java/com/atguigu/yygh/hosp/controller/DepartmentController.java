@@ -16,7 +16,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/admin/hosp/department")
-@CrossOrigin
+//@CrossOrigin
 public class DepartmentController {
 
     @Autowired
