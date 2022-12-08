@@ -34,4 +34,8 @@ public interface HospitalService {
 
     //根据医院名称查询
     List<Hospital> findByHosname(String hosname);
+
+    //根据医院编号获取医院预约挂号详情列表
+    Map<String, Object> item(String hoscode);
+
 }
