@@ -29,3 +29,13 @@ spring:
           uri: lb://service-cmn
           predicates:
             - Path=/*/cmn/**
+
+        - id: service-user
+          uri: lb://service-user
+          predicates:
+            - Path=/*/user/**
+
+        - id: service-msm
+          uri: lb://service-msm
+          predicates:
+            - Path=/*/msm/**

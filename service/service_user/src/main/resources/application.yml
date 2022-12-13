@@ -1,0 +1,31 @@
+#服务端口号
+server:
+  port: 8203
+
+spring:
+  #服务名称
+  application:
+    name: service-user
+  profiles:
+    #环境设置
+    active: dev
+  #mysql
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/yygh_user?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 10086
+  jackson:
+    #返回json的全局时间格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  cloud:
+    #nacos服务地址
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1
+        port: 8848
+
+#配置mapper.xml 文件的路径
+mybatis-plus:
+  mapper-locations: classpath:com/atguigu/yygh/user/mapper/xml/*.xml
