@@ -3,6 +3,7 @@ package com.atguigu.yygh.msm.controller;
 import com.atguigu.yygh.common.result.Result;
 import com.atguigu.yygh.msm.service.MsmService;
 import com.atguigu.yygh.msm.utils.RandomUtil;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -19,6 +20,7 @@ import java.util.concurrent.TimeUnit;
  * @Date 2022/12/12 14:31
  * @Version 1.0
  */
+@Api("短信接口")
 @RestController
 @RequestMapping("/api/msm")
 public class MsmApiController {

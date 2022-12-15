@@ -49,9 +49,9 @@ public class MsmServiceImpl implements  MsmService {
         //手机号
         request.putQueryParameter("PhoneNumbers", phone);
         //签名名称
-        request.putQueryParameter("SignName", "阿里云短信测试");
+        request.putQueryParameter("SignName", "尚医通");
         //模板code
-        request.putQueryParameter("TemplateCode", "SMS_154950909");
+        request.putQueryParameter("TemplateCode", "SMS_264150863");
         //验证码  使用json格式   {"code":"123456"}
         Map<String,Object> param = new HashMap();
         param.put("code",code);

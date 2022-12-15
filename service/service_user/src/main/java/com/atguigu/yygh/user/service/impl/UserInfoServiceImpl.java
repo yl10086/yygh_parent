@@ -34,13 +34,14 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         //从loginVo中获取输入的手机号和验证码
         String phone = loginVo.getPhone();
         String code = loginVo.getCode();
+        //判断手机号或者验证码是否为空
         if (StringUtils.isEmpty(phone)||StringUtils.isEmpty(code)){
             throw new YyghException(ResultCodeEnum.PARAM_ERROR);
         }
 
         //判断手机号、验证码是否一致
         String redisCode = redisTemplate.opsForValue().get(phone);
-        if (!code.equals(redisCode)||StringUtils.isEmpty(redisCode)){
+        if (!code.equals(redisCode)){
             throw new YyghException(ResultCodeEnum.CODE_ERROR);
         }
 

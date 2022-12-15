@@ -22,10 +22,18 @@ spring:
   cloud:
     #nacos服务地址
     nacos:
-      discovery:
-        server-addr: 127.0.0.1
-        port: 8848
-
+      server-addr: 127.0.0.1:8848
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    timeout: 1800000
+    jedis:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 5
+        min-idle: 0
 #配置mapper.xml 文件的路径
 mybatis-plus:
   mapper-locations: classpath:com/atguigu/yygh/user/mapper/xml/*.xml
