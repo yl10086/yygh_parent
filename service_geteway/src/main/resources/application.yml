@@ -39,3 +39,8 @@ spring:
           uri: lb://service-msm
           predicates:
             - Path=/*/msm/**
+
+        - id: service-user
+          uri: lb://service-user
+          predicates:
+            - Path=/*/ucenter/**

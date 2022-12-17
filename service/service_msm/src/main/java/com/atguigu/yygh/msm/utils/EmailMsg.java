@@ -25,7 +25,7 @@ public class EmailMsg implements InitializingBean {
     public static String EMAIL_HOST;
 
     @Override
-    public void afterPropertiesSet() {
+    public void afterPropertiesSet() throws Exception{
         EMAIL_HOST = host;
         EMAIL_USERNAME =username;
         EMAIL_PASSWORD =password;
