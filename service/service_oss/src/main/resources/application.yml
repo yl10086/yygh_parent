@@ -18,7 +18,7 @@ spring:
 
 aliyun:
   oss:
-    endpoint: xxxxxxxxxxxxxxxxxxxxxxxx
-    accessKeyId: xxxxxxxxxxxxxxxxxxxxxxxx
-    secret: xxxxxxxxxxxxxxxxxxxxxxxx
-    bucket: xxxxxxxxxxxxxxxxxxxxxxxx
+    endpoint: xxxxxxxxxxxxxxxxxxxxxxx
+    accessKeyId: xxxxxxxxxxxxxxxxxxxxxxx
+    secret: xxxxxxxxxxxxxxxxxxxxxxx
+    bucket: xxxxxxxxxxxxxxxxxxxxxxx

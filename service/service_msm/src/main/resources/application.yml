@@ -28,8 +28,8 @@ spring:
         min-idle: 0
   mail:
     host: smtp.qq.com #发送邮件服务器
-    username: xxxxxxxxxxxxxxxxxxxxxxxx #QQ邮箱
-    password: xxxxxxxxxxxxxxxxxxxxxxxx #客户端授权码
+    username: xxxxxxxxxxxxxxxxxxxxxxx #QQ邮箱
+    password: xxxxxxxxxxxxxxxxxxxxxxx #客户端授权码
     protocol: smtp #发送邮件协议
     default-encoding: utf-8
     properties.mail.smtp.auth: true
@@ -41,5 +41,5 @@ spring:
 aliyun:
   sms:
     regionId: default
-    accessKeyId: xxxxxxxxxxxxxxxxxxxxxxxx
-    secret: xxxxxxxxxxxxxxxxxxxxxxxx
+    accessKeyId: xxxxxxxxxxxxxxxxxxxxxxx
+    secret: xxxxxxxxxxxxxxxxxxxxxxx

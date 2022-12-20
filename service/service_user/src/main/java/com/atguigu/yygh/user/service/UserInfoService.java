@@ -2,6 +2,7 @@ package com.atguigu.yygh.user.service;
 
 import com.atguigu.yygh.model.user.UserInfo;
 import com.atguigu.yygh.vo.user.LoginVo;
+import com.atguigu.yygh.vo.user.UserAuthVo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.Map;
@@ -17,5 +18,8 @@ public interface UserInfoService extends IService<UserInfo> {
 
     //查看数据库中是否存在openid
     UserInfo selectWxInfoOpenId(String openid);
+
+    //用户认证接口
+    void authUser(Long userId, UserAuthVo userAuthVo);
 }
 
