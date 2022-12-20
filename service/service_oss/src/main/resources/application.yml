@@ -1,0 +1,24 @@
+server:
+  port: 8205
+
+spring:
+  application:
+    #nacos服务名
+    name: service-oss
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      #nacos服务地址
+      server-addr: 127.0.0.1:8848
+  jackson:
+    #返回json的全局时间格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+aliyun:
+  oss:
+    endpoint: xxxxxxxxxxxxxxxxxxxxxxxx
+    accessKeyId: xxxxxxxxxxxxxxxxxxxxxxxx
+    secret: xxxxxxxxxxxxxxxxxxxxxxxx
+    bucket: xxxxxxxxxxxxxxxxxxxxxxxx
