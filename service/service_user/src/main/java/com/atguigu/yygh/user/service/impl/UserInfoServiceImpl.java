@@ -69,7 +69,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         }
 
         //如果userInfo为空，进行正常的手机登录
-        if (userInfo == null){
+        if (null == userInfo){
             //判断是否是第一次登陆：根据手机号查询数据库，如果不存在则进行注册操作，反之直接登录
             QueryWrapper<UserInfo> wrapper = new QueryWrapper<>();
             wrapper.eq("phone",phone);
