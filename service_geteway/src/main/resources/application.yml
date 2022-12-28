@@ -49,3 +49,8 @@ spring:
           uri: lb://service-oss
           predicates:
             - Path=/*/oss/**
+
+        - id: service-order
+          uri: lb://service-order
+          predicates:
+            - Path=/*/order/**

@@ -1,0 +1,44 @@
+# 服务端口
+server:
+  port: 8206
+
+spring:
+  # 服务名
+  application:
+    name: service-order
+  # 环境设置：dev、test、prod
+  profiles:
+    active: dev
+  # mysql数据库连接
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/yygh_order?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 10086
+  #返回json的全局时间格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  data:
+    mongodb:
+      uri: mongodb://81.71.71.98:27017/yygh_hosp
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    timeout: 1800000
+    jedis:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 5
+        min-idle: 0
+  #rabbitmq地址
+  rabbitmq:
+    host: 81.71.71.98
+    port: 5672
+    username: guest
+    password: guest

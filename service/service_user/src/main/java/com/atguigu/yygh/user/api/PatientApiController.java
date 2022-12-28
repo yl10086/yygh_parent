@@ -6,6 +6,7 @@ import com.atguigu.yygh.model.user.Patient;
 import com.atguigu.yygh.user.service.PatientService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -64,4 +65,13 @@ public class PatientApiController {
         patientService.removeById(id);
         return Result.ok();
     }
+
+    @ApiOperation("根据就诊人id获取就诊人信息")
+    @GetMapping("inner/get/{id}")
+    public Patient getPatientOrder(
+            @ApiParam(name = "id", value = "就诊人id", required = true)
+            @PathVariable("id") Long id) {
+        return patientService.getPatientId(id);
+    }
+
 }

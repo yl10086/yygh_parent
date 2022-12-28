@@ -26,3 +26,9 @@ spring:
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
+  #rabbitmq地址
+  rabbitmq:
+    host: 81.71.71.98
+    port: 5672
+    username: guest
+    password: guest

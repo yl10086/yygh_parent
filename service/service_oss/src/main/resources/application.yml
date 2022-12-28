@@ -18,7 +18,7 @@ spring:
 
 aliyun:
   oss:
-    endpoint: xxxxxxxxxxxxxxxxxxxxxxx
-    accessKeyId: xxxxxxxxxxxxxxxxxxxxxxx
-    secret: xxxxxxxxxxxxxxxxxxxxxxx
-    bucket: xxxxxxxxxxxxxxxxxxxxxxx
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+    accessKeyId: LTAI5tJpWBRDmvJKKrxpQmRt
+    secret: ggYsu4ewRNNUSFzbv4jf6i3wrrvSzJ
+    bucket: syt-lei
