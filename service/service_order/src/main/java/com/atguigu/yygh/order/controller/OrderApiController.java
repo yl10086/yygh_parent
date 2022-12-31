@@ -1,12 +1,20 @@
 package com.atguigu.yygh.order.controller;
 
 import com.atguigu.yygh.common.result.Result;
+import com.atguigu.yygh.common.utils.AuthContextHolder;
+import com.atguigu.yygh.enums.OrderStatusEnum;
+import com.atguigu.yygh.model.order.OrderInfo;
 import com.atguigu.yygh.order.service.OrderService;
+import com.atguigu.yygh.vo.order.OrderQueryVo;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author YeLei
@@ -37,4 +45,29 @@ public class OrderApiController {
         return Result.ok(orderService.getOrderInfo(orderId));
     }
 
+    @ApiOperation("根据条件查询订单列表（分页）")
+    @GetMapping("auth/{page}/{limit}")
+    public Result getOrderInfo(@PathVariable Long page,
+                               @PathVariable Long limit,
+                               OrderQueryVo orderQueryVo,
+                               HttpServletRequest request) {
+        //设置当前用户id
+        orderQueryVo.setUserId(AuthContextHolder.getUserId(request));
+        Page<OrderInfo> pageParam = new Page<>(page,limit);
+        IPage<OrderInfo> pageModel = orderService.selectPage(pageParam,orderQueryVo);
+        return Result.ok(pageModel);
+    }
+
+    @ApiOperation("获取订单状态")
+    @GetMapping("auth/getStatusList")
+    public Result getStatusList() {
+        return Result.ok(OrderStatusEnum.getStatusList());
+    }
+
+    @ApiOperation("取消预约")
+    @GetMapping("auth/cancelOrder/{orderId}")
+    public Result cancelOrder(@PathVariable Long orderId) {
+        Boolean isOrder = orderService.cancelOrder(orderId);
+        return Result.ok(isOrder);
+    }
 }
