@@ -52,3 +52,6 @@ weixin:
   partnerkey: T6m9iK73b0kn9g5v426MKfHQH7X8rKwb
   #退款证书
   cert: D:\\SSM\\1026\\yygh_parent\\service\\service_order\\src\\main\\resources\\cert\\apiclient_cert.p12
+
+mybatis-plus:
+  mapper-locations: classpath:com/atguigu/yygh/order/mapper/xml/*.xml

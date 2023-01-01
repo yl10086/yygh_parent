@@ -1,10 +1,13 @@
 package com.atguigu.yygh.order.service;
 
 import com.atguigu.yygh.model.order.OrderInfo;
+import com.atguigu.yygh.vo.order.OrderCountQueryVo;
 import com.atguigu.yygh.vo.order.OrderQueryVo;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.Map;
 
 /**
  * @Author YeLei
@@ -24,4 +27,11 @@ public interface OrderService extends IService<OrderInfo> {
 
     //取消预约
     Boolean cancelOrder(Long orderId);
+
+    //就诊提醒
+    void patientTips();
+
+    //预约统计
+    Map<String,Object> getCountMap(OrderCountQueryVo orderCountQueryVo);
+
 }

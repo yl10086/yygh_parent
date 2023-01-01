@@ -1,0 +1,19 @@
+server:
+  port: 8207
+
+spring:
+  application:
+    #nacos服务名
+    name: service-task
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      #nacos服务地址
+      server-addr: 127.0.0.1:8848
+  #rabbitmq地址
+  rabbitmq:
+    host: 81.71.71.98
+    port: 5672
+    username: guest
+    password: guest
